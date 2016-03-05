@@ -35,7 +35,7 @@ typedef sce::PhysicsEffects::PfxConstraintRow btConstraintRow;
 	typedef btConstraintRow PfxConstraintRow;
 #endif //PFX_USE_FREE_VECTORMATH
 
-
+class btCollisionShape;
 
 /// ManifoldContactPoint collects and maintains persistent contactpoints.
 /// used to improve stability and performance of rigidbody dynamics response.
@@ -52,7 +52,9 @@ class btManifoldPoint
 				m_contactMotion2(0.f),
 				m_contactCFM1(0.f),
 				m_contactCFM2(0.f),
-				m_lifeTime(0)
+				m_lifeTime(0),
+                m_shape0(0),
+                m_shape1(0)
 			{
 			}
 
@@ -75,7 +77,9 @@ class btManifoldPoint
 					m_contactMotion2(0.f),
 					m_contactCFM1(0.f),
 					m_contactCFM2(0.f),
-					m_lifeTime(0)
+                    m_lifeTime(0),
+                    m_shape0(0),
+                    m_shape1(0)
 			{
 				
 			}
@@ -99,6 +103,8 @@ class btManifoldPoint
 			int			m_partId1;
 			int			m_index0;
 			int			m_index1;
+            const btCollisionShape* m_shape0;
+            const btCollisionShape* m_shape1;
 				
 			mutable void*	m_userPersistentData;
 			bool			m_lateralFrictionInitialized;

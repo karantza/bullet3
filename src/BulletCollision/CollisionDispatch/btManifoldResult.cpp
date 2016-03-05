@@ -115,13 +115,17 @@ void btManifoldResult::addContactPoint(const btVector3& normalOnBInWorld,const b
 	
    //BP mod, store contact triangles.
 	if (isSwapped)
-	{
+    {
+        newPt.m_shape0 = m_body1Wrap->getCollisionShape();
+        newPt.m_shape1 = m_body0Wrap->getCollisionShape();
 		newPt.m_partId0 = m_partId1;
 		newPt.m_partId1 = m_partId0;
 		newPt.m_index0  = m_index1;
 		newPt.m_index1  = m_index0;
 	} else
-	{
+    {
+        newPt.m_shape0 = m_body0Wrap->getCollisionShape();
+        newPt.m_shape1 = m_body1Wrap->getCollisionShape();
 		newPt.m_partId0 = m_partId0;
 		newPt.m_partId1 = m_partId1;
 		newPt.m_index0  = m_index0;
