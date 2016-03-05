@@ -1449,7 +1449,7 @@ btScalar btSequentialImpulseConstraintSolver::solveGroupCacheFriendlySetup(btCol
 							sum += iMJlB.dot(solverConstraint.m_contactNormal2);
 							sum += iMJaB.dot(solverConstraint.m_relpos2CrossNormal);
 							btScalar fsum = btFabs(sum);
-							btAssert(fsum > SIMD_EPSILON);
+                            //btAssert(fsum > SIMD_EPSILON);
 							solverConstraint.m_jacDiagABInv = fsum>SIMD_EPSILON?btScalar(1.)/sum : 0.f;
 						}
 
