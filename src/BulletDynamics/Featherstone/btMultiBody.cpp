@@ -1732,7 +1732,6 @@ void btMultiBody::goToSleep()
 
 void btMultiBody::checkMotionAndSleepIfRequired(btScalar timestep)
 {
-	int num_links = getNumLinks();
 	extern bool gDisableDeactivation;
     if (!m_canSleep || gDisableDeactivation) 
 	{
